@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from lists.models import Item
 
-# ToDo: Support more than one list!
-
 
 def home_page(request):
     if request.method == 'POST':

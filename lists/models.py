@@ -1,7 +1,5 @@
 from django.db import models
 
-# ToDo: Adjust model so that items are associated with diffrent lists
-
 
 class List(models.Model):
     pass

@@ -17,7 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 # ToDo: Add unique URLs for each list
-# ToDo: Add a URL for creating a new list via POST
 # ToDo: Add URLs for adding a new item to an existing list via POST
 
 

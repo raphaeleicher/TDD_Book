@@ -28,9 +28,9 @@ eg, on Ubuntu:
 Assume we have a user account at /home/username
 
 /home/username
-└-- sites
-    └-- SITENAME
+└── sites
+    └── SITENAME
         ├── database
         ├── source
         ├── static
-        └-- virtualenv
+        └── virtualenv

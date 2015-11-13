@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import os
 import sys
+import platform
 
 os.environ['DJANGO_LIVE_TEST_SERVER_ADDRESS'] = 'localhost:8001'
 
@@ -24,8 +25,12 @@ class NewVisitorTest(StaticLiveServerTestCase):
             super().tearDownClass()
 
     def setUp(self):
-        # self.browser = webdriver.Firefox()
-        self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+        if platform.system() == 'Windows':
+            self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+        elif platform.system() == 'Darwin':
+            self.browser = webdriver.Firefox()
+        else:
+            return False
         self.browser.implicitly_wait(10)
 
     def tearDown(self):
@@ -80,8 +85,12 @@ class NewVisitorTest(StaticLiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's coming through from cookies etc
         self.browser.quit()
-        # self.browser = webdriver.Firefox()
-        self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+        if platform.system() == 'Windows':
+            self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+        elif platform.system() == 'Darwin':
+            self.browser = webdriver.Firefox()
+        else:
+            return False
 
         # Francis visits the home page. There is no sign of Edith's
         # list

@@ -25,7 +25,7 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self):
         if platform.system() == 'Windows':
-            self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+            self.browser = webdriver.Chrome()
         elif platform.system() == 'Darwin':
             self.browser = webdriver.Firefox()
         else:

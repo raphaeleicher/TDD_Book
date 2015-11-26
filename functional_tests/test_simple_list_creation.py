@@ -51,7 +51,7 @@ class NewVisitorTest(FunctionalTest):
         ## of Edith's coming through from cookies etc
         self.browser.quit()
         if platform.system() == 'Windows':
-            self.browser = webdriver.Chrome('c:\\WebDev\\chromedriver.exe')
+            self.browser = webdriver.Chrome()
         elif platform.system() == 'Darwin':
             self.browser = webdriver.Firefox()
         else:

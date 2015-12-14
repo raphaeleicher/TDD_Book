@@ -1,3 +1,4 @@
+{% load browserid %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/base.css" rel="stylesheet" media="screen">
+    {% browserid_css %}
 </head>
 <body>
+    {% browserid_info %}
     <div class="container">
+        <div class="navbar">
+            {% if user.is_authenticated %}
+                <p>Logged in as {{ user.email }}
+                {% browserid_logout text='Logout' %}
+                </p>
+            {% else %}
+                {% browserid_login text='Login' color='dark' %}
+            {% endif %}
+        </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3 jumbotron">
                 <div class="text-center">
@@ -31,7 +43,8 @@
             </div>
         </div>
     </div>
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="/static/list.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    {% browserid_js %}
+    <script src="/static/list.js"></script>
 </body>
 </html>
